@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>YouTube Filter</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="section">
+        <h3>Keyword Filters</h3>
+        <input type="text" id="keyword-input" placeholder="Enter keyword to filter">
+        <button id="add-keyword">Add</button>
+        <ul id="keyword-list"></ul>
+    </div>
+
+    <div class="section">
+        <h3>Video Length Filter</h3>
+        <input type="number" id="min-length" min="0" step="0.5" placeholder="Minimum length (minutes)">
+    </div>
+
+    <div class="section">
+        <h3>Enable/Disable Filters</h3>
+        <div class="checkbox-container">
+            <input type="checkbox" id="enable-keyword-filter">
+            <label for="enable-keyword-filter">Keyword Filter</label>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="enable-length-filter">
+            <label for="enable-length-filter">Length Filter</label>
+        </div>
+    </div>
+
+    <button id="save-settings">Save Settings</button>
+    <div id="status-message"></div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

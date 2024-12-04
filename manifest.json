@@ -1,24 +1,40 @@
 {
-    "manifest_version": 3,
-    "name": "YouTube Filter Extension",
-    "version": "1.4",
-    "description": "Hide irrelevant recommended videos on YouTube based on keywords and video length.",
-    "permissions": ["storage"],
-    "host_permissions": [
-      "*://www.youtube.com/*"
-    ],
-    "action": {
-      "default_popup": "popup.html"
+  "manifest_version": 3,
+  "name": "feedfilter-yt",
+  "version": "1.4",
+  "description": "Hide irrelevant recommended videos on YouTube based on keywords and video length.",
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "32": "assets/icons/icon-48.png",
+      "48": "assets/icons/icon-48.png"
     },
-    "content_scripts": [
-      {
-        "matches": ["*://www.youtube.com/*"],
-        "js": ["content.js"],
-        "run_at": "document_idle"
-      }
-    ],
-    "background": {
-      "service_worker": "background.js"
+    "default_title": "feedfilter-yt",
+    "default_popup": "src/popup/popup.html"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "*://www.youtube.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*"
+      ],
+      "js": [
+        "src/content/content.js"
+      ],
+      "run_at": "document_idle"
     }
+  ],
+  "background": {
+    "service_worker": "src/background/background.js"
   }
-  
+}

@@ -1,0 +1,115 @@
+/* popup.css */
+
+/* Container styles */
+body {
+    width: 300px;
+    padding: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Section styles */
+.section {
+    margin-bottom: 20px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.section h3 {
+    margin: 0 0 12px 0;
+    color: #1a73e8;
+    font-size: 16px;
+}
+
+/* Input styles */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+/* Button styles */
+button {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #1557b0;
+}
+
+button.remove {
+    background-color: #dc3545;
+    padding: 4px 8px;
+    margin-left: 8px;
+    font-size: 12px;
+}
+
+button.remove:hover {
+    background-color: #bb2d3b;
+}
+
+/* Keyword list styles */
+#keyword-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+}
+
+#keyword-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    margin: 4px 0;
+    background: white;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+}
+
+/* Checkbox container styles */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Status message styles */
+#status-message {
+    margin-top: 16px;
+    padding: 8px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#status-message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+#status-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
