@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "YouTube Filter Extension",
+    "version": "1.4",
+    "description": "Hide irrelevant recommended videos on YouTube based on keywords and video length.",
+    "permissions": ["storage"],
+    "host_permissions": [
+      "*://www.youtube.com/*"
+    ],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://www.youtube.com/*"],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
+  
