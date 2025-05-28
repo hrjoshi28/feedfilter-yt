@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const statusMessage = document.getElementById('status-message');
     const enableKeywordFilterCheckbox = document.getElementById('enable-keyword-filter');
     const enableLengthFilterCheckbox = document.getElementById('enable-length-filter');
+    const enableShortsFilterCheckbox = document.getElementById('enable-shorts-filter');
   
     /**
      * Updates the list of keywords displayed in the popup.
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
           const removeButton = document.createElement('button');
           removeButton.textContent = 'Remove';
+          removeButton.className = 'remove';
           removeButton.title = `Remove keyword "${keyword}"`;
           removeButton.addEventListener('click', () => removeKeyword(keyword));
   
@@ -89,12 +91,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const minLength = parseFloat(minLengthInput.value) || 0;
       const enableKeywordFilter = enableKeywordFilterCheckbox.checked;
       const enableLengthFilter = enableLengthFilterCheckbox.checked;
+      const enableShortsFilter = enableShortsFilterCheckbox.checked;
   
       try {
         await chrome.storage.sync.set({
           minLength,
           enableKeywordFilter,
-          enableLengthFilter
+          enableLengthFilter,
+          enableShortsFilter
         });
         showStatus('Settings saved and filter applied.', 'success');
         sendReapplyFiltersMessage();
@@ -140,14 +144,21 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const loadSettings = async () => {
       try {
-        const { minLength = 0, enableKeywordFilter = true, enableLengthFilter = true } = await chrome.storage.sync.get([
+        const { 
+          minLength = 0, 
+          enableKeywordFilter = true, 
+          enableLengthFilter = true,
+          enableShortsFilter = true 
+        } = await chrome.storage.sync.get([
           'minLength',
           'enableKeywordFilter',
-          'enableLengthFilter'
+          'enableLengthFilter',
+          'enableShortsFilter'
         ]);
         minLengthInput.value = minLength;
         enableKeywordFilterCheckbox.checked = enableKeywordFilter;
         enableLengthFilterCheckbox.checked = enableLengthFilter;
+        enableShortsFilterCheckbox.checked = enableShortsFilter;
       } catch (error) {
         console.error('Error loading settings:', error);
         showStatus('Failed to load settings.', 'error');
@@ -173,4 +184,3 @@ document.addEventListener('DOMContentLoaded', () => {
       await updateKeywords();
     })();
   });
-  

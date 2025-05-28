@@ -5,9 +5,9 @@ chrome.runtime.onInstalled.addListener(() => {
       keywords: [],
       minLength: 0,
       enableKeywordFilter: true,
-      enableLengthFilter: true
+      enableLengthFilter: true,
+      enableShortsFilter: true
     }, () => {
       console.log('YouTube Filter Extension initialized with default settings.');
     });
   });
-  
